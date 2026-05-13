@@ -1,0 +1,783 @@
+# Instincts generated from https://github.com/lllyyysss77/ManGaAI
+# Generated: 2026-05-13T02:55:44.124Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: ManGaAI-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, refactor, chore, feat, ci
+
+## Evidence
+
+- 200 commits analyzed
+- Detected conventional commit pattern
+- Examples: refactor: remove 6 dead code blocks (commented-out constants, imports, and unused store access), feat(shared/utils): unify all time formatters into single formatTime
+
+---
+id: ManGaAI-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Commit Length
+
+## Action
+
+Write moderate-length commit messages (~58 characters)
+
+## Evidence
+
+- Average commit message length: 58 chars
+- Based on 200 commits
+
+---
+id: ManGaAI-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: ManGaAI-import-alias
+trigger: "when importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Import Alias
+
+## Action
+
+Use path aliases (@/, ~/) instead of relative imports
+
+## Evidence
+
+- Import analysis shows alias pattern
+- Example: import { x } from '@/lib/x'
+
+---
+id: ManGaAI-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: ManGaAI-arch-feature-based
+trigger: "when adding a new feature"
+confidence: 0.85
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Arch Feature Based
+
+## Action
+
+Create a new folder in src/features/ with all related code colocated
+
+## Evidence
+
+- Feature-based module organization detected
+- Structure: src/features/[feature-name]/
+
+---
+id: ManGaAI-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Test Framework
+
+## Action
+
+Use jest as the test framework
+
+## Evidence
+
+- Test framework detected: jest
+- File pattern: *.test.ts
+
+---
+id: ManGaAI-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: ManGaAI-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Test Mocking
+
+## Action
+
+Use jest.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: jest.mock
+- Consistent across test files
+
+---
+id: ManGaAI-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: yes
+
+---
+id: ManGaAI-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: src/__tests__/features/manga-pipeline/*, src/components/business/costdashboard/*, src/components/ui/*
+
+---
+id: ManGaAI-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~15x per month
+- Files: src/**/*
+
+---
+id: ManGaAI-workflow-deduplicate-and-unify-utility-functions
+trigger: "when doing deduplicate and unify utility functions"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Workflow Deduplicate And Unify Utility Functions
+
+## Action
+
+Follow the deduplicate-and-unify-utility-functions workflow:
+1. Identify duplicate utility functions in feature/service/component files.
+2. Move or implement the unified version in src/shared/utils/index.ts.
+3. Remove local duplicates from all affected files.
+4. Update all call sites to use the shared utility.
+5. Clean up imports and remove dead code.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: src/shared/utils/index.ts, src/core/services/*.ts, src/features/*/components/*.tsx
+
+---
+id: ManGaAI-workflow-react-fc-to-function-component-migration
+trigger: "when doing react fc to function component migration"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Workflow React Fc To Function Component Migration
+
+## Action
+
+Follow the react-fc-to-function-component-migration workflow:
+1. Identify components using React.FC.
+2. Convert each to a function declaration.
+3. Update any related imports/exports.
+4. Batch similar changes together for related components.
+5. Commit with a refactor message.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: src/features/*/components/*.tsx, src/shared/components/ui/*.tsx, src/components/ui/*.tsx
+
+---
+id: ManGaAI-workflow-dead-code-and-unused-import-removal
+trigger: "when doing dead code and unused import removal"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Workflow Dead Code And Unused Import Removal
+
+## Action
+
+Follow the dead-code-and-unused-import-removal workflow:
+1. Scan for dead code blocks, commented-out code, and unused imports.
+2. Remove these from the relevant files.
+3. Delete deprecated or pure forwarding files if all consumers have migrated.
+4. Commit with a refactor message.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: src/core/services/*.ts, src/core/data/*.ts, src/core/hooks/*.ts
+
+---
+id: ManGaAI-workflow-extract-and-share-utility-or-constants
+trigger: "when doing extract and share utility or constants"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Workflow Extract And Share Utility Or Constants
+
+## Action
+
+Follow the extract-and-share-utility-or-constants workflow:
+1. Identify reusable utility functions or constants.
+2. Extract them into a new or existing shared file (e.g., novel-helpers.ts, emotion-constants.ts).
+3. Update imports in all consumers to use the shared version.
+4. Remove old definitions from original files.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/core/services/*.ts, src/core/services/novel-helpers.ts, src/features/manga-pipeline/utils/emotion-constants.ts
+
+---
+id: ManGaAI-workflow-refactor-feature-workflow-migration
+trigger: "when doing refactor feature workflow migration"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Workflow Refactor Feature Workflow Migration
+
+## Action
+
+Follow the refactor-feature-workflow-migration workflow:
+1. Identify local implementations in feature files (e.g., formatTime, generateId, etc.).
+2. Replace with calls to shared or unified services/utilities.
+3. Remove old code and update all relevant call sites.
+4. Test to ensure feature parity.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/features/*/components/*.tsx, src/pages/*.tsx, src/shared/utils/index.ts
+
+---
+id: ManGaAI-workflow-ci-workflow-yml-adjustment
+trigger: "when doing ci workflow yml adjustment"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/ManGaAI
+---
+
+# ManGaAI Workflow Ci Workflow Yml Adjustment
+
+## Action
+
+Follow the ci-workflow-yml-adjustment workflow:
+1. Edit .github/workflows/release.yml to adjust parameters, outputs, or steps.
+2. Test the workflow in CI.
+3. Repeat as needed until the workflow passes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: .github/workflows/release.yml
+
+---
+id: mangaai-instinct-file-naming-camelCase
+trigger: "When creating or renaming a file in the codebase."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct File Naming CamelCase
+
+## Action
+
+Use camelCase for file names.
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Consistent file names in src/
+
+---
+id: mangaai-instinct-function-naming-camelCase
+trigger: "When defining a new function."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Function Naming CamelCase
+
+## Action
+
+Name the function using camelCase.
+
+## Evidence
+
+- Pattern in namingConventions.functions
+- Examples in src/shared/utils/index.ts
+
+---
+id: mangaai-instinct-class-naming-pascalCase
+trigger: "When defining a new class."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Class Naming PascalCase
+
+## Action
+
+Name the class using PascalCase.
+
+## Evidence
+
+- Pattern in namingConventions.classes
+
+---
+id: mangaai-instinct-constant-naming-screaming-snake-case
+trigger: "When declaring a constant."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Constant Naming Screaming Snake Case
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names.
+
+## Evidence
+
+- Pattern in namingConventions.constants
+
+---
+id: mangaai-instinct-import-style-alias
+trigger: "When importing modules."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Import Style Alias
+
+## Action
+
+Use alias-based import paths.
+
+## Evidence
+
+- Pattern in importStyle
+- Examples in src/
+
+---
+id: mangaai-instinct-export-style-mixed
+trigger: "When exporting modules or functions."
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Export Style Mixed
+
+## Action
+
+Use a mixed export style (both named and default exports as appropriate).
+
+## Evidence
+
+- Pattern in exportStyle
+
+---
+id: mangaai-instinct-jest-test-file-pattern
+trigger: "When creating a test file."
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Jest Test File Pattern
+
+## Action
+
+Name the test file with the pattern *.test.ts.
+
+## Evidence
+
+- Pattern in testing.filePattern
+- Examples in src/__tests__/*
+
+---
+id: mangaai-instinct-jest-mocking-style
+trigger: "When mocking modules in tests."
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Jest Mocking Style
+
+## Action
+
+Use jest.mock for mocking.
+
+## Evidence
+
+- Pattern in testing.mockingStyle
+- Examples in src/__tests__/*
+
+---
+id: mangaai-instinct-test-types-unit-integration
+trigger: "When writing tests."
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Test Types Unit Integration
+
+## Action
+
+Write both unit and integration tests as appropriate.
+
+## Evidence
+
+- Pattern in testing.testTypes
+- Examples in src/__tests__/*
+
+---
+id: mangaai-instinct-jest-coverage-config
+trigger: "When configuring tests."
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Jest Coverage Config
+
+## Action
+
+Ensure test coverage is configured in Jest.
+
+## Evidence
+
+- Pattern in testing.coverageConfig
+- Presence of jest.config.js
+
+---
+id: mangaai-instinct-commit-conventional-format
+trigger: "When making a git commit."
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Commit Conventional Format
+
+## Action
+
+Use conventional commit format: <type>(<scope>): <description>.
+
+## Evidence
+
+- Pattern in commits.type
+- Examples: fix(eslint): resolve test-file parser errors
+
+---
+id: mangaai-instinct-commit-prefixes
+trigger: "When choosing a commit type."
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Commit Prefixes
+
+## Action
+
+Use one of the following prefixes: fix, refactor, chore, feat, ci, docs.
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples in commit history
+
+---
+id: mangaai-instinct-commit-length
+trigger: "When writing a commit message."
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Commit Length
+
+## Action
+
+Keep the commit message concise (average ~58 characters).
+
+## Evidence
+
+- Pattern in commits.averageLength
+- Examples in commit history
+
+---
+id: mangaai-instinct-deduplicate-utils
+trigger: "When utility functions (like formatTime, generateId, formatDuration, formatFileSize) are duplicated across multiple files and need to be unified."
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Deduplicate Utils
+
+## Action
+
+Move or implement the unified version in src/shared/utils/index.ts, remove local duplicates, and update all call sites.
+
+## Evidence
+
+- Workflow: deduplicate-and-unify-utility-functions
+- Commits: feat(shared/utils): unify all time formatters
+
+---
+id: mangaai-instinct-migrate-fc-to-fn
+trigger: "When the codebase is being standardized to use function declarations instead of React.FC for components."
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Migrate Fc To Fn
+
+## Action
+
+Convert React.FC components to standard function declarations and update related imports/exports.
+
+## Evidence
+
+- Workflow: react-fc-to-function-component-migration
+- Commits: refactor: 拆分 image-generation.service 为独立模块
+
+---
+id: mangaai-instinct-remove-dead-code
+trigger: "When dead code, unused imports, or deprecated files are identified during refactoring or code review."
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Remove Dead Code
+
+## Action
+
+Remove dead code blocks, commented-out code, unused imports, and deprecated files from the codebase.
+
+## Evidence
+
+- Workflow: dead-code-and-unused-import-removal
+- Commits: refactor: remove 6 dead code blocks
+
+---
+id: mangaai-instinct-extract-shared-utils
+trigger: "When utility functions or constants are used in multiple places or need to be reused across features."
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Extract Shared Utils
+
+## Action
+
+Extract them into a new or existing shared file (e.g., novel-helpers.ts, emotion-constants.ts) and update all consumers.
+
+## Evidence
+
+- Workflow: extract-and-share-utility-or-constants
+- Commits: refactor(novel-analyze): extract pure utility functions to novel-helpers.ts
+
+---
+id: mangaai-instinct-migrate-feature-to-shared
+trigger: "When a feature's local implementation can be replaced with a shared or improved version for consistency and maintainability."
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Migrate Feature To Shared
+
+## Action
+
+Replace local implementations with calls to shared or unified services/utilities and update all relevant call sites.
+
+## Evidence
+
+- Workflow: refactor-feature-workflow-migration
+- Commits: feat(shared/utils): consolidate formatTime family into single formatTime function
+
+---
+id: mangaai-instinct-fix-release-ci
+trigger: "When release automation fails or needs improvement in the CI/CD pipeline."
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/ManGaAI
+---
+
+# Mangaai Instinct Fix Release Ci
+
+## Action
+
+Edit .github/workflows/release.yml to adjust parameters, outputs, or steps and test until the workflow passes.
+
+## Evidence
+
+- Workflow: ci-workflow-yml-adjustment
+- Commits: fix(release): add outputs and id to build jobs
+
